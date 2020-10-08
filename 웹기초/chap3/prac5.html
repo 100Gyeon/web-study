@@ -11,26 +11,29 @@
     <form>
         <fieldset>
             <legend>도형 서식 입력</legend>
-            선종류
-            <select size="3">
-                <option>선없음</option>
-                <option>실선</option>
-                <option>점선</option>
-            </select>
+            <label>
+                선종류
+                <select size="3">
+                    <option>선없음</option>
+                    <option>실선</option>
+                    <option>점선</option>
+                </select>
+            </label>
             <br><br>
-            선두께
-            <input type="number">
-            선색
-            <input type="color" value="#00BFFF"
-                onchange="document.body.style.color=this.value">
+
+            <label>선두께 <input type="number"></label>
+            <label>선색 <input type="color" value="#00BFFF"></label>
             <br><br>
-            투명도(0~100): 
-            <input type="range" min="0" max="100" list="transparency">
-            <datalist id="transparency">
-                <option value="0">
-                <option value="50">
-                <option value="100">
-            </datalist>
+            
+            <label>
+                투명도(0~100): 
+                <input type="range" min="0" max="100" list="transparency">
+                <datalist id="transparency">
+                    <option value="0">
+                    <option value="50">
+                    <option value="100">
+                </datalist>
+            </label>
         </fieldset>
     </form>
 </body>
