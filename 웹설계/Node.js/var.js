@@ -5,3 +5,4 @@ module.exports = {
     odd,
     even,
 };
+// module.exports를 통해 모듈로 만들 값 지정
