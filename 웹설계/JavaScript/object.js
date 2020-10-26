@@ -10,7 +10,7 @@ let product = {
 let object = {
     name: '바나나',
     price: 1200
-}
+};
 
 console.log(product); // key와 value 전체 출력
 console.log(product.제품명);
