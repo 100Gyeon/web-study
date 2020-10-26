@@ -12,6 +12,9 @@ let object = {
     price: 1200
 }
 
-console.log(product);
+console.log(product); // key와 value 전체 출력
+console.log(product.제품명);
+console.log(product['유형']);
+
 console.log(object.name);
-console.log(object['price']);
+console.log(object['price']); // object.price랑 똑같음
