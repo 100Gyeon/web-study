@@ -1,10 +1,13 @@
 const http = require('http');
 
 http.createServer((req, res) => {
-    console.log(req.url, req.headers.cookie); // req.headers.cookie에 쿠키가 문자열로 담겨있음
+    console.log(req.url, req.headers.cookie);
+    // req.url : 요청 주소
+    // req.headers.cookie에 쿠키가 문자열로 담겨있음
     res.writeHead(200, { 'Set-Cookie': 'mycookie=test' });
     // writeHead : 요청 헤더에 입력하는 메서드
     // Set-Cookie : 브라우저에 쿠키를 설정하라고 명령
+    // 쿠키는 키=값의 쌍이니까 mycookie=test
     res.end('Hello Cookie');
 })
     .listen(8083, () => {
