@@ -55,3 +55,8 @@ console.log(`0 == "": ${0 == ""}`); // true
 console.log(`0 === "": ${0 === ""}`); // false
 // ==는 형 변환을 수행한 후 NaN, -0, +0을 처리
 // ===는 자료형까지 검사
+
+/* Number 객체 */
+let number = 273.5210332;
+console.log(number.toFixed(1)); // 273.5
+console.log(number.toFixed(4)); // 273.5210
