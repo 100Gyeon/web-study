@@ -9,3 +9,9 @@ function Product(name, price) {
 // 객체 생성 (new가 없으면 undefined가 리턴된다.)
 let product = new Product("바나나", 1200);
 console.log(product);
+
+function Constructor() { }
+Constructor.property = 273;
+Constructor.method = function () { };
+console.log(Constructor.property); // 273
+console.log(Constructor.method); // [Function]
