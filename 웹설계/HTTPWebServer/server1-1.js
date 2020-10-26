@@ -4,10 +4,10 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
-    res.write('<h1>Hello Node!</h1>');
-    res.end('<p>Hello Server!</p>');
+    res.write('<h1>Hello Node!</h1>'); // 응답 내용 적기
+    res.end('<p>Hello Server!</p>'); // 응답 마무리 (내용 넣어도 된다.)
 });
-server.listen(8080);
+server.listen(8080); // 특정 포트에 연결
 
 // listening과 error 이벤트 붙일 수 있음
 server.on('listening', () => {
