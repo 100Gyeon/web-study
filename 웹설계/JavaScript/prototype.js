@@ -1,9 +1,11 @@
 // 생성자 함수
+// 생성자 함수로 만든 객체는 프로토타입 공간에 지정한 메소드 공유 가능
 function Product(name, price) {
     this.name = name;
     this.price = price;
 }
 
+// 프로토타입 : 메소드를 저장하는 공간
 // 프로토타입에 메소드 선언
 Product.prototype.print = function () {
     console.log(this.name + "의 가격은 " + this.price + "원입니다.");
