@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>float 배치</title>
+    <style>
+        .outer {
+            border: 1px solid red;
+        }
+        /* 가상의 element 추가하기
+        가상 클래스 : 요소의 이벤트에 대응하기 위하여 미리 만들어놓은 클래스
+        가상 요소 : 존재하지 않는 요소를 존재하는 것처럼 부여해서 문서의 특정 부분 선택
+        ::는 css3에서 가상 클래스와 가상 요소를 구분하기 위해 도입된 것
+        ::after는 요소의 끝부분에 콘텐츠를 추가하는 것
+        display: inline;으로는 원하는 결과를 얻을 수 없다. block만 가능
+        clear: both;는 글자가 따라 붙지 않게 오른쪽 왼쪽을 취소하는 것 
+        이후에 float가 영향을 미치지 않도록 clear를 넣었다.
+        사이트 메뉴 UI 만들 때 많이 사용된다. */
+        .outer::after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+        #float {
+            float: left;
+            /* 뷰포트의 왼쪽에 붙이기 */
+            border: 1px dotted black;
+            width: 7em;
+            /* 7개의 글자 크기 */
+            padding: 0.25em;
+            margin: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>학기말 공지</h3>
+    <hr>
+    <div>
+        <div class="outer">
+            <p id="float">
+                24일은 피아니스트 조성진의 크리스마스 특별
+                연주가 있습니다.</p>
+            <p id="float">
+                25일은 피아니스트 홍길동의 크리스마스 특별
+                연주가 있습니다.</p>
+        </div>
+        <p>
+            이제 곧 겨울 방학이 시작됩니다. 학기 중 못다한
+            Java, C++ 프로그래밍 열심히 하기 바랍니다.
+            인턴을 준비하는 학생들은 프로젝트 개발에
+            더욱 힘쓰세요. 그럼 다음 학기에 만나요.</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Labore eveniet obcaecati voluptatum molestias error aperiam,
+            explicabo voluptatem beatae molestiae asperiores neque fuga
+            incidunt fugiat cum laudantium, deserunt, iure laboriosam provident.
+        </p>
+    </div>
+</body>
+
+</html>
