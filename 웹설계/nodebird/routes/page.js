@@ -20,7 +20,7 @@ router.get('/join', (req, res) => {
 
 router.get('/', (req, res, next) => {
   const twits = [];
-  res.render('main', {
+  res.render('main', { // 렌더링할 때 main.html 사용
     title: 'NodeBird',
     twits,
   });
