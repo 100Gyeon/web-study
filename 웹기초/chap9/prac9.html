@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>onmouseover과 onmouseout</title>
+    <script>
+        var explain;
+        var sentence = ["빨간자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다",
+            "책 100권 읽기에 대한 설명이다", "철인 3종 경기 준비에 대한 설명이다", "자바스크립트 정복에 대한 설명이다"];
+
+        function init() {
+            explain = document.getElementById("explain");
+            var listArr = document.getElementsByTagName("li");
+            var length = listArr.length;
+            for (var i = 0; i < length; i++) {
+                listArr[i].addEventListener("mouseover", over, false);
+                listArr[i].addEventListener("mouseout", hide, false);
+            }
+        }
+
+        function over(e) {
+            var idx = 0;
+            switch (e.target.id) {
+                case "item1":
+                    idx = 0; break;
+                case "item2":
+                    idx = 1; break;
+                case "item3":
+                    idx = 2; break;
+                case "item4":
+                    idx = 3; break;
+            }
+            set(sentence[idx], e);
+        }
+
+        function set(exp, e) {
+            explain.innerHTML = exp;
+            explain.style.width = "200px";
+            explain.style.height = "80px";
+            explain.style.visibility = "visible";
+            explain.style.top = e.clientY + "px";
+            explain.style.left = e.clientX + "px";
+            explain.style.background = "aliceblue";
+            explain.style.border = "1px solid yellowgreen";
+        }
+
+        function hide() {
+            explain.style.visibility = "hidden";
+        }
+    </script>
+</head>
+<body onload="init()">
+    <h3>아이템에 마우스를 올리면 설명 출력</h3>
+    <hr>
+    <p>여름 방학 때 하고 싶은 것들</p>
+    <ul>
+        <li id="item1">자전거로 대한민국 일주</li>
+        <li id="item2">책 100권 읽기</li>
+        <li id="item3">철인 3종 경기 준비</li>
+        <li id="item4">자바스크립트 정복</li>
+    </ul>
+    <div id="explain" style="position:absolute"></div>
+</body>
+</html>
