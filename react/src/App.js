@@ -42,7 +42,10 @@ class App extends Component {
             console.log(e);
             e.preventDefault(); // tag가 가지고 있는 기본적인 동작을 막을 때 사용
             // debugger;
-          }}>{this.state.subject.title}</a></h1>
+            this.setState({
+              mode: 'welcome'
+            });
+          }.bind(this)}>{this.state.subject.title}</a></h1>
           {this.state.subject.sub}
         </header>
         <TOC data={this.state.contents}></TOC>
