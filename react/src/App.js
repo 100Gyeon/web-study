@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import TOC from "./components/TOC"
 import Content from "./components/Content"
 import Subject from "./components/Subject"
+import Control from "./components/Control"
 import './App.css';
 
-// component를 만드는 코드
 // props, state 값이 바뀌면 해당 컴포넌트의 render 함수가 호출된다. (= 화면이 다시 그려진다.)
+
+// props : read-only, can not be modified
+// state : changes can be asynchronous, can be modified using this.setState
+
+// 상위 컴포넌트가 하위 컴포넌트에 명령할 때는 props 사용
+// 하위 컴포넌트가 상위 컴포넌트의 값을 바꾸려고 하면 event 사용
+
+// component를 만드는 코드
 class App extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +76,11 @@ class App extends Component {
             });
           }.bind(this)}
           data={this.state.contents}></TOC>
+        <Control onChangeMode={function(_mode){
+          this.setState({
+            mode:_mode
+          })
+        }.bind(this)}></Control>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
