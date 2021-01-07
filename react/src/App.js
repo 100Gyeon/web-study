@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TOC from "./components/TOC"
-import Content from "./components/Content"
+import ReadContent from "./components/ReadContent"
+import CreateContent from "./components/CreateContent"
 import Subject from "./components/Subject"
 import Control from "./components/Control"
 import './App.css';
@@ -31,21 +32,25 @@ class App extends Component {
   }
   render() {
     console.log('App render');
-    var _title, _desc = null;
+    var _title, _desc, _article = null;
     if(this.state.mode === 'welcome') {
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
-    } else if(this.state.mode ==='read') {
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>
+    } else if(this.state.mode === 'read') {
       var i = 0;
       while(i < this.state.contents.length) {
         var data = this.state.contents[i];
         if(data.id === this.state.selected_content_id) {
           _title = data.title;
           _desc = data.desc;
+          _article = <ReadContent title={_title} desc={_desc}></ReadContent>
           break;
         }
         i = i + 1;
       }
+    } else if(this.state.mode === 'create'){
+      _article = <CreateContent></CreateContent>
     }
     return ( 
       <div className="App">
@@ -81,7 +86,7 @@ class App extends Component {
             mode:_mode
           })
         }.bind(this)}></Control>
-        <Content title={_title} desc={_desc}></Content>
+        {_article}
       </div>
     );
   }
