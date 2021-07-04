@@ -3,8 +3,8 @@
 <head>
     <title>마우스 휠을 이용한 이미지 확대/축소</title>
     <script>
-        var height = 200;
-        var width = 300;
+        let height = 200;
+        let width = 300;
         function wheel(e, obj) {
             if (e.wheelDelta > 0) { // 휠을 위로 굴릴 때 이미지 5% 축소
                 height -= height * 0.05;
