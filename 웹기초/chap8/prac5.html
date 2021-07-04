@@ -21,19 +21,19 @@
         <img src="media/spade-7.png" width="100" height="140" alt="스페이드7">
     </div>
     <script>
-        var imgArray = document.getElementsByTagName("img");
-        var length = imgArray.length;
-        for (var i = 0; i < length; i++) {
-            var img = imgArray[i];
+        const imgArray = document.getElementsByTagName("img");
+        const length = imgArray.length;
+        for (let i = 0; i < length; i++) {
+            let img = imgArray[i];
             img.style.zIndex = i;
             img.style.left = "10px";
             img.style.top = "20px";
             img.onclick = change;
         }
         function change() {
-            for (var i = 0; i < length; i++) {
-                var img = imgArray[i];
-                var newIndex = (++img.style.zIndex) % length;
+            for (let i = 0; i < length; i++) {
+                let img = imgArray[i];
+                let newIndex = (++img.style.zIndex) % length;
                 img.style.zIndex = newIndex;
             }
         }
