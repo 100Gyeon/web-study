@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <title>onmouseover과 onmouseout</title>
     <script>
-        var explain;
-        var sentence = ["빨간자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다",
+        const sentence = ["빨간자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다",
             "책 100권 읽기에 대한 설명이다", "철인 3종 경기 준비에 대한 설명이다", "자바스크립트 정복에 대한 설명이다"];
 
         function init() {
-            explain = document.getElementById("explain");
-            var listArr = document.getElementsByTagName("li");
-            var length = listArr.length;
-            for (var i = 0; i < length; i++) {
+            const explain = document.getElementById("explain");
+            const listArr = document.getElementsByTagName("li");
+            const length = listArr.length;
+            for (let i = 0; i < length; i++) {
                 listArr[i].addEventListener("mouseover", over, false);
                 listArr[i].addEventListener("mouseout", hide, false);
             }
         }
 
         function over(e) {
-            var idx = 0;
+            let idx = 0;
             switch (e.target.id) {
                 case "item1":
                     idx = 0; break;
