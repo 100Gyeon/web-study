@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Toggle Button</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background: tomato;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div.hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button>Toggle</button>
+  <div>요소</div>
+  <script>
+    const element = document.querySelector('div');
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+      if (element.classList.contains('hide')) {
+        element.classList.remove('hide');
+      } else {
+        element.classList.add('hide');
+      }
+    });
+  </script>
+</body>
+</html>
