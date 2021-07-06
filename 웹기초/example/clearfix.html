@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+    .float-box {
+      width: 100px;
+      height: 100px;
+      background: orange;
+      margin: 10px;
+      float: left;
+    }
+    .new-box {
+      width: 250px;
+      height: 250px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="clearfix">
+    <div class="float-box">1</div>
+    <div class="float-box">2</div>
+    <div class="float-box">3</div>
+    <div class="float-box">4</div>
+  </div>
+  <div class="new-box"></div>
+</body>
+</html>
