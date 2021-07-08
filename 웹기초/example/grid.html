@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    .container {
+      display: grid; /* block 특성의 grid container를 정의, inline-grid는 inline 특성의 grid container를 정의 */
+      grid-template-rows: repeat(2, 100px); /* 높이가 100px인 2개의 행 생성 */
+      grid-template-columns: repeat(3, 1fr); /* 너비 1:1:1 비율로 3개의 열 생성 */
+      border: 4px solid lightgray;
+    }
+    .item {
+      border: 2px dashed red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+</html>
