@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    .container {
+      width: 600px;
+      display: grid;
+      grid-template-rows: repeat(3, 100px);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: /* grid-area를 참고해 그리드 템플릿을 생성 */
+        "header header header"
+        "main . aside"
+        ". footer footer"; /* 빈칸을 만들 때는 .을 사용 */
+      row-gap: 30px; /* 각 행과 행 사이의 간격을 지정*/
+      column-gap: 15px; /* 각 열과 열 사이의 간격을 지정*/
+    }
+    .item {
+      border: 10px solid red;
+    }
+    .item:nth-child(1) {
+      grid-area: header;
+    }
+    .item:nth-child(2) {
+      grid-area: main;
+    }
+    .item:nth-child(3) {
+      grid-area: aside;
+    }
+    .item:nth-child(4) {
+      grid-area: footer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">HEADER</div>
+    <div class="item">MAIN</div>
+    <div class="item">ASIDE</div>
+    <div class="item">FOOTER</div>
+  </div>
+</body>
+</html>
