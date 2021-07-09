@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    .container {
+      width: 600px;
+      display: grid;
+      grid-template-rows: repeat(3, 100px);
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: row dense;
+      /* grid-auto-flow는 배치하지 않은 아이템을 어떤 방식의 자동 배치 알고리즘으로 처리할지 정의
+      - row : 수평으로 흐르게 하겠다.
+      - column : 수직으로 흐르게 하겠다.
+      - row dense, column dense : 빈 영역을 메우면서 수평/수직으로 배치하겠다. */
+    }
+    .item {
+      border: 10px solid red;
+    }
+    .item:nth-child(1) {
+      grid-column: span 2;
+    }
+    .item:nth-child(2) {
+      grid-column: -1 / -3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+</body>
+</html>
