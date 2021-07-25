@@ -70,3 +70,138 @@ class B {
   }
 }
 new B().hello();
+
+
+// get, set
+class A {
+  _name = 'no name';
+
+  get name() {
+    return this._name + '@@@';
+  }
+
+  set name(value) {
+    this._name = value + '!!!';
+  }
+}
+const a = new A();
+console.log(a); // A { _name: 'no name' }
+a.name = 'Mark';
+console.log(a); // A { _name: 'Mark!!!' } 
+console.log(a.name); // Mark!!!@@@
+console.log(a._name); // Mark!!!
+
+// read only
+class A {
+  _name = 'no name';
+
+  get name() {
+    return this._name + '@@@';
+  }
+}
+const b = new B();
+console.log(b); // B { _name: 'no name' }
+b.name = 'Mark';
+console.log(b); // setter 함수가 없기 때문에 이것도 B { _name: 'no name' }
+
+
+// static 변수, 함수
+class A {
+  static age = 37;
+  static hello() {
+    console.log(A.age);
+  }
+}
+console.log(A, A.age);
+A.hello();
+
+class B {
+  age = 37;
+  static hello() {
+    console.log(this.age);
+  }
+}
+console.log(B, B.age); // [Function: B] undefined
+B.hello(); // undefined
+new B().hello(); // error : hello()는 객체에 속해있는 함수가 아니기 때문
+
+
+// 상속 기본
+class Parent {
+  name = 'Lee'; // 멤버 변수
+  hello() { // 멤버 함수
+    console.log('hello', this.name);
+  }
+}
+
+class Child extends Parent {
+
+}
+
+const p = new Parent();
+const c = new Child();
+console.log(p, c); // Parent { name: 'Lee' } Child { name: 'Lee' }
+c.hello(); // hello Lee -> 부모의 함수를 자식이 그대로 실행
+c.name = 'Anna';
+c.hello(); // hello Anna -> 바뀐 name으로 문자열 출력
+
+// 변수, 함수 추가 및 오버라이딩
+// 자식이 부모를 덮어씀
+class Parent {
+  name = 'Lee';
+  hello() {
+    console.log('hello', this.name);
+  }
+}
+
+class Child extends Parent {
+  age = 37;
+  hello() {
+    console.log('hello', this.name, this.age);
+  }
+}
+
+const p = new Parent();
+const c = new Child();
+console.log(p, c); // Parent { name: 'Lee' } Child { name: 'Lee', age: 37 }
+c.hello(); // hello Lee 37
+C.name = 'Anna';
+c.hello(); // hello Anna 37
+
+
+// super : 자식이 constructor에서 무언가를 추가하고자 할 때, super를 꼭 호출해야 함
+class Parent {
+  name;
+  constructor(name) {
+    this.name = name;
+  }
+  hello() {
+    console.log('hello', this.name);
+  }
+}
+
+class Child extends Parent {
+  age;
+  constructor(name, age) {
+    super(name); // 중요
+    this.age = age;
+  }
+  hello() {
+    console.log('hello', this.name, this.age);
+  }
+}
+
+const p = new Parent('Mark');
+const c = new Child('Mark', 37);
+console.log(p, c); // Parent { name: 'Mark' } Child { name: 'Mark', age: 37 }
+c.hello(); // hello Mark 37
+
+
+// static 상속
+class Parent {
+  static age = 37;
+}
+class Child extends Parent {
+
+}
+console.log(Parent.age, Child.age); // 37 37
