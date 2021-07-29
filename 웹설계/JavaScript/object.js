@@ -18,3 +18,7 @@ console.log(product['유형']);
 
 console.log(object.name);
 console.log(object['price']); // object.price랑 똑같음
+
+console.log(Object.entries(product)); // [Array(2), Array(2), Array(2), Array(2)]
+console.log(Object.keys(product)); // ["제품명", "유형", "성분", "원산지"]
+console.log(Object.values(products)); // ["7D 건조 망고", "당절임", "망고, 설탕, 메타중아황산나트륨, 치자황색소", "필리핀"]
