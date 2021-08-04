@@ -2,10 +2,15 @@ import React from 'react';
 
 // 클래스, 함수 형태로 컴포넌트 작성
 // 컴포넌트 이름은 대문자로 시작
-function Hello({ color, name }) {
-  return <div style={{
-    color
-  }}>안녕하세요 {name}</div>;
+function Hello({ color, name, isSpecial }) {
+  return (
+    <div style={{
+      color
+    }}>
+      { isSpecial && <b>*</b> }
+      안녕하세요 {name}
+    </div>
+  );
 }
 
 Hello.defaultProps = {
