@@ -7,6 +7,8 @@ function Hello({ color, name, isSpecial }) {
     <div style={{
       color
     }}>
+      {/* 조건부 렌더링 */}
+      {/* isSpecial ? <b>*</b> : null */}
       { isSpecial && <b>*</b> }
       안녕하세요 {name}
     </div>
