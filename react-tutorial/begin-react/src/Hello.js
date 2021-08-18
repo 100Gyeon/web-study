@@ -13,6 +13,7 @@ function Hello({ color, name, isSpecial }) {
   );
 }
 
+// 기본값을 설정하고 싶을 때 defaultProps를 사용
 Hello.defaultProps = {
   name: '이름없음'
 }
