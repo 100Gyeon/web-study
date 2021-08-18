@@ -49,3 +49,21 @@
     ```
 
 - props : 컴포넌트에게 특정 값을 전달해주고 싶을 때 사용하는 것
+
+- 이벤트 적용하기 : onClick, onChange처럼 대문자로 시작
+  ```javascript
+  return (
+    <div>
+      <button onClick={onIncrease}>+1</button>
+      <button onClick={onDecrease}>-1</button>
+    </div>
+  )
+  ```
+
+- useState가 호출되었을 때는 배열을 반환하게 된다.  
+  const [현재 상태, 상태를 바꾸는 함수] = useState(기본값);  
+  ```javascript
+  const [number, setNumber] = useState(0);
+  ```
+  useState를 사용할 때는 상태의 기본값을 파라미터로 넣어서 호출  
+  useState를 통해서 바뀌는 값을 관리할 수 있음
