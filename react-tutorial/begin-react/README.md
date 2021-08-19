@@ -79,3 +79,18 @@
     [name]: value, // name 키를 가진 값을 value로 설정
   });
   ```
+
+- useRef로 특정 DOM 선택하기
+  ```javascript
+  import React, { useRef } from 'react'; // useRef 불러오기
+  ...
+  const nameInput = useRef(); // useRef 호출해 객체 만들기
+  nameInput.current.focus(); // 객체명.current는 내가 선택하고 싶은 객체를 가리키고 있음
+  ...
+  // ref를 원하는 DOM에 설정
+  return (
+    <div>
+      <input ref={nameInput}>
+    </div>
+  );
+  ```
