@@ -2,11 +2,20 @@
 
 import React from 'react';
 
-function User({ user, onRemove }) {
-  const { username, email, id } = user;
+function User({ user, onRemove, onToggle }) {
+  const { username, email, id, active } = user;
   return (
     <div>
-      <b>{username}</b><span>({email})</span>
+      <b 
+        style={{
+          color: active ? 'green' : 'black',
+          cursor: 'pointer'
+        }}
+        onClick={() => onToggle(id)}
+      >
+        {username}
+      </b>
+      <span>({email})</span>
       <button onClick={() => onRemove(id)}>삭제</button>
       {/* 
       (주의) onClick={onRemove(id)}처럼 코드 작성하면 렌더링 된 순간 함수가 호출되므로 
@@ -16,16 +25,17 @@ function User({ user, onRemove }) {
   );
 }
 
-function UserList({ users, onRemove }) {
+function UserList({ users, onRemove, onToggle }) {
   return (
     <div>
       {
         users.map(
-          (user, index) => (
+          (user) => (
             <User 
               user={user} 
               key={user.id} 
               onRemove={onRemove}
+              onToggle={onToggle}
             />
           )
           // (user, index) => (<User user={user} key={index} />)

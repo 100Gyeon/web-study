@@ -118,11 +118,15 @@
   - scroll 위치
 
 - 리액트에서 배열에 항목 추가하기
-  - spread 연산자를 사용하는 방법
+  - **spread** 연산자를 사용하는 방법
     ```javascript
     setUsers([...users, user]);
     ```
-  - concat 함수를 사용하는 방법
+  - **concat** 함수를 사용하는 방법
     ```javascript
     setUsers(users.concat(user));
     ```
+
+- 리액트에서 배열의 항목 제거하기 : **filter**
+
+- 리액트에서 배열의 항목 수정하기 : **map**
