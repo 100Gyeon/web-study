@@ -33,7 +33,11 @@ function App() {
     }
   ]);
 
-  const nextId = useRef(4);
+  const nextId = useRef(4); // useRef로 컴포넌트 안의 변수 만들기
+  /*
+    nextId를 useRef로 관리해주는 이유?
+    값이 바뀐다고 해서 컴포넌트도 리렌더링 할 필요가 없기 때문
+  */
 
   const onCreate = () => {
     const user = {

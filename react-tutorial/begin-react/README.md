@@ -68,7 +68,8 @@
   const [number, setNumber] = useState(0);
   ```
   useState를 사용할 때는 상태의 기본값을 파라미터로 넣어서 호출  
-  useState를 통해서 바뀌는 값을 관리할 수 있음
+  useState를 통해서 바뀌는 값을 관리할 수 있음  
+  하지만 setState를 호출할 때마다 컴포넌트가 리렌더링 되기 때문에 굳이 렌더링 할 필요가 없는 값을 관리하고자 한다면 useRef를 사용하면 된다.
 
 - 리액트에서 객체 업데이트 하기
   1. spread 문법 사용해서 기존 객체 복사
@@ -94,3 +95,9 @@
     </div>
   );
   ```
+
+- useRef로 컴포넌트 안의 변수 만들기  
+  Q. 주로 어떤 값을 관리할 때 useRef를 사용할까?
+  - setTimeout, setInterval의 id
+  - 외부 라이브러리를 사용하여 생성된 인스턴스
+  - scroll 위치
