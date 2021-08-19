@@ -3,7 +3,9 @@
 ## 💡 What I Learned
 - Virtual DOM : 메모리에 가상으로 존재하는 DOM  
   [동작 원리]  
-  업데이트가 필요한 UI를 메모리에 있는 Virtual DOM에 렌더링 👉 브라우저에 실제로 보여지고 있는 DOM과 Virtual DOM을 비교 👉 차이점을 감지하고 나서 실제 DOM에 패치
+  1. 업데이트가 필요한 UI를 메모리에 있는 Virtual DOM에 렌더링
+  1. 브라우저에 실제로 보여지고 있는 DOM과 Virtual DOM을 비교
+  1. 차이점을 감지하고 나서 실제 DOM에 패치
 
 - component : UI 조각  
   클래스, 함수 형태로 컴포넌트 작성할 수 있음  
@@ -67,3 +69,13 @@
   ```
   useState를 사용할 때는 상태의 기본값을 파라미터로 넣어서 호출  
   useState를 통해서 바뀌는 값을 관리할 수 있음
+
+- 리액트에서 객체 업데이트 하기
+  1. spread 문법 사용해서 기존 객체 복사
+  1. 특정 값을 덮어씌움
+  ```javascript
+  setInputs({
+    ...inputs, // 기존의 input 객체를 복사한 뒤
+    [name]: value, // name 키를 가진 값을 value로 설정
+  });
+  ```

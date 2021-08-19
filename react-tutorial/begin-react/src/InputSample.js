@@ -8,11 +8,11 @@ function InputSample() {
   const nameInput = useRef();
   const { name, nickname } = inputs;
   const onChange = (e) => {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
-    const { name, value } = e.target;
-    // 객체 상태를 업데이트 할 때는, spread 문법 사용해서 객체 복사하고 난 뒤
-    // 특정 값을 덮어씌워서 업데이트
+    const { name, value } = e.target; // e.target.name과 e.target.value 대신 name과 value로 사용하기 위한 비구조화 할당
+
+    /* 리액트에서 객체를 업데이트 할 때는
+      1) spread 문법 사용해서 기존 객체를 복사하고
+      2) 특정 값을 덮어씌운다. */
     setInputs({
       ...inputs, // 기존의 input 객체를 복사한 뒤
       [name]: value, // name 키를 가진 값을 value로 설정
