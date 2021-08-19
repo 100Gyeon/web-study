@@ -7,12 +7,12 @@ function App() {
     username: '',
     email: '',
   });
-  const { username, email } = inputs;
+  const { username, email } = inputs; // inputs에서 username과 email을 미리 추출
   const onChange = e => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
-      [name]: value
+      [name]: value // name이 email이면 email을 value로 바꾸고, name이 username이면 username을 value로 바꾼다.
     });
   };
   const [users, setUsers] = useState([

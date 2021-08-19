@@ -65,14 +65,29 @@
 - useState가 호출되었을 때는 배열을 반환하게 된다.  
   const [현재 상태, 상태를 바꾸는 함수] = useState(기본값);  
   ```javascript
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(0); // useState(0)처럼 상태의 기본값을 파라미터로 넣어서 호출
   ```
-  useState를 사용할 때는 상태의 기본값을 파라미터로 넣어서 호출  
-  useState를 통해서 바뀌는 값을 관리할 수 있음  
-  하지만 setState를 호출할 때마다 컴포넌트가 리렌더링 되기 때문에 굳이 렌더링 할 필요가 없는 값을 관리하고자 한다면 useRef를 사용하면 된다.
+  - useState를 통해서 바뀌는 값을 관리할 수 있음  
+    하지만 setState를 호출할 때마다 컴포넌트가 리렌더링 되기 때문에  
+    굳이 렌더링 할 필요가 없는 값을 관리할 경우, useRef를 사용하면 된다.
+  - useState를 사용해서 여러 개의 input 값을 관리할 수 있다.
+    ```javascript
+    const [inputs, setInputs] = useState({
+      username: '',
+      email: '',
+    });
+    const { username, email } = inputs;
+    const onChange = e => {
+      const { name, value } = e.target;
+      setInputs({
+        ...inputs,
+        [name]: value
+      });
+    };
+    ```
 
 - 리액트에서 객체 업데이트 하기
-  1. spread 문법 사용해서 기존 객체 복사
+  1. spread 연산자 사용해서 기존 객체 복사
   1. 특정 값을 덮어씌움
   ```javascript
   setInputs({
@@ -101,3 +116,13 @@
   - setTimeout, setInterval의 id
   - 외부 라이브러리를 사용하여 생성된 인스턴스
   - scroll 위치
+
+- 리액트에서 배열에 항목 추가하기
+  - spread 연산자를 사용하는 방법
+    ```javascript
+    setUsers([...users, user]);
+    ```
+  - concat 함수를 사용하는 방법
+    ```javascript
+    setUsers(users.concat(user));
+    ```
