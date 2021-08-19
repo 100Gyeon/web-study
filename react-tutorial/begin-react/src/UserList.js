@@ -2,20 +2,32 @@
 
 import React from 'react';
 
-function User({ user }) {
+function User({ user, onRemove }) {
+  const { username, email, id } = user;
   return (
     <div>
-      <b>{user.username}</b><span>({user.email})</span>
+      <b>{username}</b><span>({email})</span>
+      <button onClick={() => onRemove(id)}>삭제</button>
+      {/* 
+      (주의) onClick={onRemove(id)}처럼 코드 작성하면 렌더링 된 순간 함수가 호출되므로 
+      onClick에서는 함수를 호출하면 안 되고, 함수 자체를 넣어줘야 한다.
+      */}
     </div>
   );
 }
 
-function UserList({ users }) {
+function UserList({ users, onRemove }) {
   return (
     <div>
       {
         users.map(
-          user => (<User user={user} key={user.id} />)
+          (user, index) => (
+            <User 
+              user={user} 
+              key={user.id} 
+              onRemove={onRemove}
+            />
+          )
           // (user, index) => (<User user={user} key={index} />)
         )
         // 각 요소들마다 고유한 값(key)을 가지고 있어야 함
