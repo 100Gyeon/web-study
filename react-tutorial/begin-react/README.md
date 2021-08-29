@@ -182,3 +182,14 @@
   ```
   함수 안에서 사용하는 상태 혹은 props 가 있다면 꼭 deps 배열에 포함시켜야 된다.  
   props로 받아온 함수가 있다면, 이 또한 deps에 넣어야 한다.
+
+- **React.memo**  
+  컴포넌트의 props가 바뀌지 않았다면, 리렌더링을 방지하여 컴포넌트의 리렌더링 성능 최적화  
+  컴포넌트에서 리렌더링이 필요한 상황에서만 리렌더링 하도록 설정할 수 있음
+  ```javascript
+  export default React.memo(
+    UserList,
+    (prevProps, nextProps) => prevProps.users === nextProps.users
+  );
+  ```
+  React.memo에서 두 번째 파라미터에 propsAreEqual 함수를 사용하여 특정 값들만 비교 가능
