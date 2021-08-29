@@ -134,7 +134,8 @@
 - **useEffect** Hook  
   첫 번째 파라미터에는 함수 등록  
   두 번째 파라미터에는 deps라는 배열 등록  
-  리액트 컴포넌트가 처음 화면에 나타날 때(mount), 사라질 때(unmount) 특정 작업을 처리할 수 있다. 컴포넌트의 props나 상태가 바뀌어서 업데이트 될 때도 특정 작업을 처리할 수 있다.
+  리액트 컴포넌트가 처음 화면에 나타날 때(mount), 사라질 때(unmount) 특정 작업을 처리할 수 있다.  
+  컴포넌트의 props나 상태가 바뀌어서 업데이트 될 때도 특정 작업을 처리할 수 있다.
   - mount 시에 하는 작업들
     1. props로 받은 값을 컴포넌트의 로컬 상태로 설정
     1. 외부 API 요청 (REST API 등)
@@ -157,4 +158,17 @@
   }, [user]);
   ...
   ```
-  useEffect에 등록한 함수에서 1) props로 받아온 값을 참조하거나, 2) useState로 관리하고 있는 값을 참조하는 경우, useEffect의 deps에 넣어야 한다. 그렇지 않으면 useEffect에 등록한 함수가 실행될 때 최신 props/상태를 가리키지 않는다.
+  useEffect에 등록한 함수에서  
+  (1) props로 받아온 값을 참조하거나,  
+  (2) useState로 관리하고 있는 값을 참조하는 경우,  
+  => useEffect의 deps에 넣어야 한다.  
+  그렇지 않으면 useEffect에 등록한 함수가 실행될 때 최신 props/상태를 가리키지 않는다.
+
+- **useMemo** Hook  
+  성능 최적화를 위하여 useMemo를 통해 연산된 값을 재사용  
+  ```javascript
+  const count = useMemo(() => countActiveUsers(users), [users]);
+  ```
+  useMemo의 첫 번째 파라미터에는 어떻게 연산할지 정의하는 함수를, 두 번째 파라미터에는 deps 배열을 넣어주면 된다.  
+  이 배열 안에 넣은 내용이 바뀌면 등록한 함수를 호출해서 값을 연산해 준다.  
+  만약에 배열 안에 넣은 내용이 바뀌지 않았다면 이전에 연산한 값을 재사용하게 된다.
