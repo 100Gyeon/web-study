@@ -172,3 +172,13 @@
   useMemo의 첫 번째 파라미터에는 어떻게 연산할지 정의하는 함수를, 두 번째 파라미터에는 deps 배열을 넣어주면 된다.  
   이 배열 안에 넣은 내용이 바뀌면 등록한 함수를 호출해서 값을 연산해 준다.  
   만약에 배열 안에 넣은 내용이 바뀌지 않았다면 이전에 연산한 값을 재사용하게 된다.
+
+- **useCallback** Hook  
+  특정 함수를 새로 만들지 않고 재사용하고 싶을 때 사용  
+  ```javascript
+  const onRemove = useCallback(id => {
+    setUsers(users.filter(user => user.id !== id));
+  }, [users]);
+  ```
+  함수 안에서 사용하는 상태 혹은 props 가 있다면 꼭 deps 배열에 포함시켜야 된다.  
+  props로 받아온 함수가 있다면, 이 또한 deps에 넣어야 한다.

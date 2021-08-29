@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -12,13 +12,13 @@ function App() {
     email: '',
   });
   const { username, email } = inputs; // inputs에서 username과 email을 미리 추출
-  const onChange = e => {
+  const onChange = useCallback(e => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]: value // name이 email이면 email을 value로 바꾸고, name이 username이면 username을 value로 바꾼다.
     });
-  };
+  }, [inputs]); // onChange 함수는 inputs가 바뀔 때만 함수가 새로 만들어지고, 그렇지 않다면 기존 함수를 재사용
   const [users, setUsers] = useState([
     {
       id: 1,
@@ -46,7 +46,7 @@ function App() {
     값이 바뀐다고 해서 컴포넌트도 리렌더링 할 필요가 없기 때문
   */
 
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -59,19 +59,19 @@ function App() {
     });
     console.log(nextId.current);
     nextId.current += 1;
-  };
+  }, [username, email, users]);
 
-  const onRemove = id => {
+  const onRemove = useCallback(id => {
     setUsers(users.filter(user => user.id !== id));
-  };
+  }, [users]);
 
-  const onToggle = id => {
+  const onToggle = useCallback(id => {
     setUsers(users.map(
       user => user.id === id
         ? { ...user, active: !user.active }
         : user
     ));
-  }
+  }, [users]);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
