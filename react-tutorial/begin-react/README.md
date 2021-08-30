@@ -222,3 +222,8 @@
 - useReducer vs useState  
   컴포넌트에서 관리하는 값이 딱 하나고, 그 값이 단순한 숫자/문자열/boolean 값이라면 useState로 관리하는게 편할 것  
   컴포넌트에서 관리하는 값이 여러 개가 되어서 상태의 구조가 복잡해진다면, useReducer로 관리하는 것이 편할 수도 있다.
+
+- 커스텀 Hooks  
+  **use**라는 키워드로 시작하는 파일을 만들고 그 안에 함수를 작성 (ex. useInputs.js)  
+  useState, useEffect, useReducer, useCallback 등 Hooks를 사용하여 원하는 기능을 구현하고, 컴포넌트에서 사용하고 싶은 값들을 반환해 주면 된다.  
+  반복되는 로직을 쉽게 재사용할 수 있다.
