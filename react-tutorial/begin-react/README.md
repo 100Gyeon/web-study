@@ -227,3 +227,18 @@
   **use**라는 키워드로 시작하는 파일을 만들고 그 안에 함수를 작성 (ex. useInputs.js)  
   useState, useEffect, useReducer, useCallback 등 Hooks를 사용하여 원하는 기능을 구현하고, 컴포넌트에서 사용하고 싶은 값들을 반환해 주면 된다.  
   반복되는 로직을 쉽게 재사용할 수 있다.
+
+- Context API를 사용한 전역 값 관리  
+  프로젝트 안에서 전역적으로 사용하는 값 관리 가능  
+  ```javascript
+  const MyContext = createContext('defaultValue');
+  ```
+  - Context를 만들 때는 React.createContext() 함수를 사용
+  - ('defaultValue')처럼 파라미터에는 기본값이 들어감
+  - 기본값이란, Provider라는 컴포넌트가 사용되지 않았을 때의 값
+  - 값을 직접 설정하고 싶다면 value 값을 설정해야 함
+    ```javascript
+    <MyContext.Provider value="Good">
+      <GrandParent />
+    </MyContext.Provider>
+    ```
