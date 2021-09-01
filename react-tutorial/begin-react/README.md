@@ -242,3 +242,19 @@
       <GrandParent />
     </MyContext.Provider>
     ```
+  - <u>여러 컴포넌트를 거쳐서 특정 함수를 전달해야 하는 일이 있다면, dispatch를 관리하는 context를 만들면 된다!</u>  
+  필요한 곳에서 바로 dispatch를 불러와서 사용하면 구조가 깔끔하고, 코드 작성이 쉬워짐
+  ```javascript
+  // UserDispatch를 만들고 내보내주는 작업
+  export const UserDispatch = React.createContext(null);
+  // 불러와 사용할 때
+  import { UserDispatch } from './App';
+  ```
+
+
+- **useContext** Hook  
+  context를 컴포넌트 내부에서 바로 조회할 수 있게 해 주는 Hook
+  ```javascript
+  // useContext를 사용해서 우리가 만든 UserDispatch Context를 조회
+  const dispatch = useContext(UserDispatch);
+  ```

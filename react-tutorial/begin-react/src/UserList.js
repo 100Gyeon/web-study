@@ -1,17 +1,12 @@
 /* 배열 렌더링하기 */
 
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
+import { UserDispatch } from './App'; // App.js에서 UserDispatch를 불러오겠다.
 
-const User = React.memo(function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user }) {
   const { username, email, id, active } = user;
-  useEffect(() => {
-    console.log('user 값이 설정됨');
-    console.log(user);
-    return () => {
-      console.log('user 값이 바뀌기 전');
-      console.log(user);
-    }
-  }, [user]);
+  const dispatch = useContext(UserDispatch);
+
   return (
     <div>
       <b 
@@ -19,21 +14,27 @@ const User = React.memo(function User({ user, onRemove, onToggle }) {
           color: active ? 'green' : 'black',
           cursor: 'pointer'
         }}
-        onClick={() => onToggle(id)}
+        onClick={() => dispatch({
+          type: 'TOGGLE_USER',
+          id
+        })}
       >
         {username}
       </b>
       <span>({email})</span>
-      <button onClick={() => onRemove(id)}>삭제</button>
+      <button onClick={() => dispatch({
+        type: 'REMOVE_USER',
+        id
+      })}>삭제</button>
       {/* 
       (주의) onClick={onRemove(id)}처럼 코드 작성하면 렌더링 된 순간 함수가 호출되므로 
-      onClick에서는 함수를 호출하면 안 되고, 함수 자체를 넣어줘야 한다.
+      onClick에서는 함수를 호출하면 안 되고, onClick={() => onRemove(id)}처럼 함수 자체를 넣어줘야 한다.
       */}
     </div>
   );
 });
 
-function UserList({ users, onRemove, onToggle }) {
+function UserList({ users }) {
   return (
     <div>
       {
@@ -41,9 +42,7 @@ function UserList({ users, onRemove, onToggle }) {
           (user) => (
             <User 
               user={user} 
-              key={user.id} 
-              onRemove={onRemove}
-              onToggle={onToggle}
+              key={user.id}
             />
           )
           // (user, index) => (<User user={user} key={index} />)
