@@ -258,3 +258,25 @@
   // useContext를 사용해서 우리가 만든 UserDispatch Context를 조회
   const dispatch = useContext(UserDispatch);
   ```
+
+- immer  
+  immer를 사용하면 불변성을 해치는 코드를 작성해도 불변성을 유지할 수 있다.
+  ```
+  $ npm i immer
+  import produce from 'immer'; // 보통 produce라는 이름으로 immer를 불러온다.
+  ```
+  <produce 함수를 사용할 때>  
+  첫 번째 파라미터에는 **수정하고 싶은 상태**, 두 번째 파라미터에는 **어떻게 업데이트하고 싶은지 정의하는 함수**를 넣어준다.  
+  두 번째 파라미터에 넣는 함수에서는 불변성을 신경 쓰지 않고 그냥 업데이트하면 다 알아서 해준다.
+  ```javascript
+  const state = {
+    number: 1,
+    dontChangeMe: 2
+  };
+
+  const nextState = produce(state, draft => {
+    draft.number += 1;
+  });
+
+  console.log(nextState); // { number: 2, dontChangeMe: 2 }
+  ```
