@@ -40,14 +40,19 @@ function reducer(state, action) {
         users: state.users.concat(action.user)
       };
     case 'TOGGLE_USER':
-      return {
-        ...state,
-        users: state.users.map(user => 
-          user.id === action.id
-          ? { ...user, active: !user.active }
-          : user
-        )
-      };
+      // update 로직이 까다로운 경우에만 immer 사용
+      return produce(state, draft => {
+        const user = draft.users.find(user => user.id === action.id);
+        user.active = !user.active;
+      });
+      // return {
+      //   ...state,
+      //   users: state.users.map(user => 
+      //     user.id === action.id
+      //     ? { ...user, active: !user.active }
+      //     : user
+      //   )
+      // };
     case 'REMOVE_USER':
       return {
         ...state,
