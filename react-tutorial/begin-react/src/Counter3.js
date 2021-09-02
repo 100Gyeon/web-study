@@ -8,14 +8,14 @@ class Counter3 extends Component {
   }
 
   handleIncrease = () => {
-    // 아래 코드는 setState를 2번 사용해도 실제로 2가 더해지지 않는다.
+    // 아래 코드는 setState를 2번 작성해도 실제로 2가 더해지지 않는다.
     // this.setState({
     //   counter: this.state.counter + 1
     // });
 
-    // setState 의 함수형 업데이트
+    // setState의 함수형 업데이트
     // 함수형 업데이트는 한 함수에서 여러 번에 걸쳐서 setState를 쓰는 경우에 사용하면 유용
-    // 아래 코드는 setState를 2번 사용하면 값이 2씩 더해진다.
+    // 아래 코드는 setState를 2번 작성하면 값이 2씩 더해진다.
     this.setState(state => ({
       counter: state.counter + 1
     }));
