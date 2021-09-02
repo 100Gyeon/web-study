@@ -280,3 +280,35 @@
 
   console.log(nextState); // { number: 2, dontChangeMe: 2 }
   ```
+
+- 클래스형 컴포넌트
+  - 커스텀 메서드  
+    클래스에서 커스텀 메서드를 만들게 될 때는 보통 **handle...** 이라고 이름 짓는다.  
+    커스텀 메서드를 선언할 때 **화살표 함수**를 사용하면,  
+    메서드와 컴포넌트 인스턴스의 관계가 끊기는 문제(= this가 조회되지 않는 문제)를 해결할 수 있다.
+    ```javascript
+    class Counter extends Component {
+      handleIncrease = () => {
+        console.log('increase');
+      };
+
+      handleDecrease = () => {
+        console.log('decrease');
+      };
+
+      render() {
+        return (
+          <div>
+            <button onClick={this.handleIncrease}>+1</button>
+            <button onClick={this.handleDecrease}>-1</button>
+          </div>
+        );
+      }
+    }
+
+    export default Counter;
+    ```
+  - 클래스형 컴포넌트의 state는 무조건 객체 형태
+  - render()에서 state를 조회하려면 this.state를 사용
+  - 상태를 업데이트 할 때는 this.setState 함수를 사용  
+    setState는 단순히 상태를 바꾸는 함수가 아니라, <u>상태로 바꿔달라고 요청</u>해 주는 함수
