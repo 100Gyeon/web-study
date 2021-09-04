@@ -312,3 +312,8 @@
   - render()에서 state를 조회하려면 this.state를 사용
   - 상태를 업데이트 할 때는 this.setState 함수를 사용  
     setState는 단순히 상태를 바꾸는 함수가 아니라, <u>상태로 바꿔달라고 요청</u>해 주는 함수
+
+- LifeCycle Method  
+  컴포넌트가 브라우저상에 <u>나타나고, 업데이트되고, 사라질 때</u> 호출되는 메서드  
+  클래스형 컴포넌트에서만 사용할 수 있음  
+  [참고](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
