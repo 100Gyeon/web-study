@@ -45,14 +45,14 @@ function reducer(state, action) {
         const user = draft.users.find(user => user.id === action.id);
         user.active = !user.active;
       });
-      // return {
-      //   ...state,
-      //   users: state.users.map(user => 
-      //     user.id === action.id
-      //     ? { ...user, active: !user.active }
-      //     : user
-      //   )
-      // };
+    // return {
+    //   ...state,
+    //   users: state.users.map(user => 
+    //     user.id === action.id
+    //     ? { ...user, active: !user.active }
+    //     : user
+    //   )
+    // };
     case 'REMOVE_USER':
       return {
         ...state,
@@ -95,13 +95,13 @@ function App() {
   return (
     // context의 값은 useReducer를 통해 받아온 dispatch를 넣어줌
     <UserDispatch.Provider value={dispatch}>
-      <CreateUser 
-        username={username} 
-        email={email} 
+      <CreateUser
+        username={username}
+        email={email}
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList 
+      <UserList
         users={users}
       />
       <div>활성 사용자 수 : {count}</div>

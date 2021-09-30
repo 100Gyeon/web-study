@@ -28,7 +28,7 @@ class Counter3 extends Component {
   };
 
   render() {
-    return(
+    return (
       <div>
         {/* render 메서드에서 state를 조회하려면 this.state를 사용해야 한다. */}
         <h1>{this.state.counter}</h1>

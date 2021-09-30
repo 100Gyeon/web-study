@@ -9,7 +9,7 @@ function Hello({ color, name, isSpecial }) {
     }}>
       {/* 조건부 렌더링 */}
       {/* isSpecial ? <b>*</b> : null */}
-      { isSpecial && <b>*</b> }
+      {isSpecial && <b>*</b>}
       안녕하세요 {name}
     </div>
   );

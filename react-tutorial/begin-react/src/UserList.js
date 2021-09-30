@@ -9,7 +9,7 @@ const User = React.memo(function User({ user }) {
 
   return (
     <div>
-      <b 
+      <b
         style={{
           color: active ? 'green' : 'black',
           cursor: 'pointer'
@@ -40,8 +40,8 @@ function UserList({ users }) {
       {
         users.map(
           (user) => (
-            <User 
-              user={user} 
+            <User
+              user={user}
               key={user.id}
             />
           )
@@ -56,6 +56,6 @@ function UserList({ users }) {
 }
 
 export default React.memo(
-  UserList, 
+  UserList,
   (prevProps, nextProps) => nextProps.users === prevProps.users
 );
