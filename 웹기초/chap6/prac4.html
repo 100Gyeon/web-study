@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prompt()</title>
+</head>
+<body>
+  <h3>월화수목금토일</h3>
+  <hr>
+  <script>
+    const answer = prompt("월화수목금토일 중에서 입력하세요", "");
+    if (answer === "월" || answer === "화" || answer === "수" || answer === "목") {
+      document.write(answer + "요일은 출근");
+    } else if (answer === "금" || answer === "토" || answer === "일") {
+      document.write(answer + "요일은 휴일");
+    } else if (answer === null || answer === "") {
+      document.write("입력하지 않았습니다.");
+    } else {
+      document.write("잘못된 입력입니다.");
+    }
+  </script>
+</body>
+</html>
