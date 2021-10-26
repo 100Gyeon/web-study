@@ -17,7 +17,8 @@ function getDiscount(v) {
 }
 console.log(getDiscount(StarbucksGrade.GREEN));
 console.log(StarbucksGrade["0"]);
-console.log(StarbucksGrade.GREEN);
 console.log(StarbucksGrade["VIP"]);
 console.log(StarbucksGrade);
+console.log(StarbucksGrade["1"]);
+console.log(StarbucksGrade.GREEN);
 //# sourceMappingURL=enum.js.map
