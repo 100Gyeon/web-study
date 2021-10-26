@@ -6,6 +6,7 @@ interface Action {
 }
 
 // &(and) 기호를 통해서 intersection 타입을 표현
+// 여러 타입을 모두 만족하는 하나의 타입을 의미
 function createUserAction(u: User, a: Action): User & Action {
   return { ...u, ...a };
 }
