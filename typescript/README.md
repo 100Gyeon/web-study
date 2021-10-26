@@ -13,6 +13,13 @@
   tsc 파일명.ts --target es6 --lib es2015,dom --module common.js // module 옵션 (Node.js 프로젝트라면 common.js를 선택)
   ```
 
+- 타입스크립트 컴파일러 설정파일 적용 후
+
+  ```
+  tsc
+  node dist/파일명.js
+  ```
+
 - 모든 타입의 상위 타입은 any다.
 
   ```typescript
