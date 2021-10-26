@@ -15,4 +15,25 @@ function getAge(age) {
 function introduce(someone) {
     someone.name;
 }
+function introduce2() {
+    return { name: "Jiyeon", age: 23, skill: "typescript" };
+}
+const jiyeon = introduce2();
+if (jiyeon.skill) {
+    const skill = jiyeon.skill;
+    console.log(skill);
+}
+else if (jiyeon.age) {
+    const age = jiyeon.age;
+    console.log(age);
+}
+function isDeveloper(target) {
+    return target.skill !== undefined;
+}
+if (isDeveloper(jiyeon)) {
+    console.log(jiyeon.skill);
+}
+else {
+    console.log(jiyeon.age);
+}
 //# sourceMappingURL=union.js.map
