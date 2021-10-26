@@ -4,15 +4,12 @@ interface User {
 interface Action {
   do(): void;
 }
-
-// &(and) 기호를 통해서 intersection 타입을 표현
-// 여러 타입을 모두 만족하는 하나의 타입을 의미
+// intersection type
 function createUserAction(u: User, a: Action): User & Action {
   return { ...u, ...a };
 }
-// u라는 변수에는 2개가 합쳐진 타입이 들어가기 때문에
-// name과 do를 사용할 수 있다.
-const u = createUserAction({ name: "jay" }, { do() {} });
+// actor라는 변수에는 User와 Action이 합쳐진 타입이 들어가기 때문에 name과 do를 사용할 수 있다.
+const actor = createUserAction({ name: "jay" }, { do() {} });
 
 // v is Action -> 사용자 정의 Type Guard
 function isAction(v: User | Action): v is Action {
@@ -28,8 +25,7 @@ function process(v: User | Action) {
   }
 }
 
-// |(or) 기호를 통해서 union 타입을 표현
-// x와 y에는 string 또는 number 둘 중 하나가 올 수 있다.
+// union type
 function compare(x: string | number, y: string | number) {
   if (typeof x === "number" && typeof y === "number") {
     return x === y ? 0 : x > y ? 1 : -1;

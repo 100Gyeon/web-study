@@ -1,7 +1,7 @@
 function createUserAction(u, a) {
     return Object.assign(Object.assign({}, u), a);
 }
-const u = createUserAction({ name: "jay" }, { do() { } });
+const actor = createUserAction({ name: "jay" }, { do() { } });
 function isAction(v) {
     return v.do !== undefined;
 }
