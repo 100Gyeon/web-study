@@ -1,14 +1,14 @@
 // 클래스는 2가지 방식으로 만들 수 있다.
 // 1. 선언적 방식
-class A {}
+class A { }
 console.log(new A());
 // 2. class 표현식을 변수에 할당
-const B = class {};
+const B = class { };
 console.log(new B());
 
 
-// constructor 메서드는 class로 생성된 객체를 생성하고 초기화
-class A {}
+// constructor 메서드는 class로 생성된 객체의 초깃값을 설정
+class A { }
 console.log(new A());
 class B {
   constructor() {
@@ -24,7 +24,7 @@ class C {
 console.log(new C('Mark', 37));
 
 
-// 멤버 변수
+// 멤버 변수 : 객체의 property
 class A {
   constructor(name, age) {
     this.name = name;
@@ -72,9 +72,9 @@ class B {
 new B().hello();
 
 
-// get, set
+// get, set (게터, 세터)
 class A {
-  _name = 'no name';
+  _name = 'no name'; // 내부적으로만 쓰는 경우에는 _name처럼 _(언더바)를 붙여준다.
 
   get name() {
     return this._name + '@@@';
@@ -92,7 +92,7 @@ console.log(a.name); // Mark!!!@@@
 console.log(a._name); // Mark!!!
 
 // read only
-class A {
+class B {
   _name = 'no name';
 
   get name() {
@@ -106,18 +106,19 @@ console.log(b); // setter 함수가 없기 때문에 이것도 B { _name: 'no na
 
 
 // static 변수, 함수
+// 객체가 아니고 클래스의 변수와 함수
 class A {
-  static age = 37;
-  static hello() {
-    console.log(A.age);
+  static age = 37; // static 변수
+  static hello() { // static 함수
+    console.log(A.age); // static 변수는 이렇게 접근
   }
 }
 console.log(A, A.age);
 A.hello();
 
 class B {
-  age = 37;
-  static hello() {
+  age = 37; // 멤버 변수
+  static hello() { // static 함수
     console.log(this.age);
   }
 }
@@ -125,8 +126,7 @@ console.log(B, B.age); // [Function: B] undefined
 B.hello(); // undefined
 new B().hello(); // error : hello()는 객체에 속해있는 함수가 아니기 때문
 
-
-// 상속 기본
+// 상속 기본 (extends 키워드 사용)
 class Parent {
   name = 'Lee'; // 멤버 변수
   hello() { // 멤버 함수
@@ -146,7 +146,7 @@ c.name = 'Anna';
 c.hello(); // hello Anna -> 바뀐 name으로 문자열 출력
 
 // 변수, 함수 추가 및 오버라이딩
-// 자식이 부모를 덮어씀
+// 자식이 부모를 덮어씀 (override)
 class Parent {
   name = 'Lee';
   hello() {
@@ -165,7 +165,7 @@ const p = new Parent();
 const c = new Child();
 console.log(p, c); // Parent { name: 'Lee' } Child { name: 'Lee', age: 37 }
 c.hello(); // hello Lee 37
-C.name = 'Anna';
+c.name = 'Anna';
 c.hello(); // hello Anna 37
 
 
@@ -187,7 +187,7 @@ class Child extends Parent {
     this.age = age;
   }
   hello() {
-    console.log('hello', this.name, this.age);
+    console.log('hello', this.name, this.age); // 함수 오버라이딩
   }
 }
 
