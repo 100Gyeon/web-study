@@ -15,3 +15,10 @@
 ### 📁 react-tutorial
 - 리액트 입문 강의
 - 🔗 [벨로퍼트와 함께하는 모던 리액트](https://github.com/velopert/react-tutorial)
+
+### 📁 typescript
+- 타입스크립트 공부
+- 🔗 [타입스크립트 공식 문서](https://typescript-kr.github.io/)
+- 🔗 [타입스크립트 핸드북](https://joshua1988.github.io/ts/)
+- 🔗 [한눈에 보는 타입스크립트](https://heropy.blog/2020/01/27/typescript/)
+- 🔗 [코딩앙마 TypeScript 강좌](https://www.youtube.com/playlist?list=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EGlx0)
