@@ -3,12 +3,12 @@
 ## 💡 What I Learned
 ### 목차
 - [기본 타입](#기본-타입)
-- [Interface](#Interface) 
-- [Class](#Class)  
-  - [access modifier](#Access-modifier)
+- [interface](#interface) 
+- [class](#class)  
+  - [access modifier](#access-modifier)
   - [readonly](#readonly)
   - [static](#static)
-  - [getter/setter](#getter/setter)
+  - [getter/setter](#gettersetter)
   - [inheritance](#inheritance)
   - [abstract class](#abstract-class)
 ---
@@ -51,7 +51,7 @@
   }
   ```
 
-### Interface
+### interface
 - 인터페이스는 상호 간에 정의한 약속 혹은 규칙을 의미한다. 
 
 - 타입스크립트에서의 인터페이스는 보통 다음과 같은 범주에 대해 약속을 정의할 수 있다.
@@ -85,7 +85,7 @@
 - 클래스처럼 인터페이스도 확장(extends)이 가능하다.  
   인터페이스 타입이 클래스 타입을 extends하면, 클래스의 멤버는 상속받지만 구현은 상속받지 않는다.
   
-### Class
+### class
 - 클래스란 객체를 만들 수 있는 방법
 - TypeScript 클래스는 멤버 변수(객체의 프로퍼티)를 미리 선언해 줘야 한다.  
   ```typescript
@@ -181,6 +181,6 @@
   
   - 추상 클래스를 상속하는 클래스에서는 반드시 추상 클래스의 추상 메소드를 구현해야 한다.
   
-  - 추상 클래스를 정의할 때는 class 앞에 abstract라고 표기한다. (`abstract class 클래스명 ...` )
+  - 추상 클래스를 정의할 때는 class 앞에 abstract라고 표기한다. (`abstract class 클래스명 ...`)
   
   - 추상 클래스는 객체 인스턴스를 생성할 수 없다.
