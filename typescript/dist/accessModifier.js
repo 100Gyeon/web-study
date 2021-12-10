@@ -18,4 +18,23 @@ class Hyundai extends Car {
 }
 const myCar = new Hyundai("black");
 console.log(myCar.name);
+class Book1 {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.init();
+    }
+    static create() { }
+    init() { }
+}
+class Book2 {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
+    static create() { }
+    init() { }
+}
 //# sourceMappingURL=accessModifier.js.map
