@@ -11,6 +11,7 @@
   - [getter/setter](#gettersetter)
   - [inheritance](#inheritance)
   - [abstract class](#abstract-class)
+- [generic](#generic) 
 ---
 
 ### 기본 타입
@@ -184,3 +185,22 @@
   - 추상 클래스를 정의할 때는 class 앞에 abstract라고 표기한다. (`abstract class 클래스명 ...`)
   
   - 추상 클래스는 객체 인스턴스를 생성할 수 없다.
+
+### generic
+- 제네릭은 함수나 클래스의 선언 시점이 아닌, 사용 시점에 타입을 선언할 수 있는 방법을 제공한다.
+
+- 한 가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는 데 사용된다.
+
+- 함수 이름 우측에 `<T>`를 작성한다. T는 타입 변수로, 사용자가 제공한 타입으로 변환될 식별자
+
+- 제네릭 인터페이스뿐만 아니라 클래스도 생성할 수 있다. 다만, enum과 namespace는 제네릭으로 생성할 수 없다.
+
+- 제네릭 제약 조건
+  - 타입 변수 T가 string과 number인 경우만 허용하려면, 아래 예제와 같이 extends 키워드를 사용하는 제약 조건을 추가할 수 있다.
+  
+    ```typescript
+    interface MyType<T extends string | number> {
+      name: string,
+      value: T
+    }
+    ```
