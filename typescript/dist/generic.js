@@ -30,4 +30,49 @@ function showName(data) {
 }
 showName(userEx);
 showName(carEx);
+function createPromise(x, timeout) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(x);
+        }, timeout);
+    });
+}
+createPromise(1, 100).then((v) => console.log(v));
+createPromise("str", 100).then((v) => console.log(v));
+function createTuple(v1, v2) {
+    return [v1, v2];
+}
+const tuple = createTuple("user1", 1000);
+class LocalDB {
+    constructor(localStorageKey) {
+        this.localStorageKey = localStorageKey;
+    }
+    add(v) {
+        localStorage.setItem(this.localStorageKey, JSON.stringify(v));
+    }
+    get() {
+        const v = localStorage.getItem(this.localStorageKey);
+        return v ? JSON.parse(v) : null;
+    }
+}
+const userDB = new LocalDB("user");
+userDB.add({ name: "jay" });
+const userA = userDB.get();
+userA.name;
+class Database {
+    add(v) {
+        throw new Error("Method not implemented.");
+    }
+    get() {
+        throw new Error("Method not implemented.");
+    }
+}
+const cart1 = {
+    getItem() {
+        return {
+            v: "",
+        };
+    },
+};
+cart1.getItem();
 //# sourceMappingURL=generic.js.map

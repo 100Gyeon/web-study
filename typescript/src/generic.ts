@@ -72,3 +72,81 @@ function showName<T extends { name: string }>(data: T): string {
 showName(userEx);
 showName(carEx);
 // showName(bookEx);
+
+/* 타입을 제네릭으로 파라미터화 시키기 */
+function createPromise<T>(x: T, timeout: number) {
+  return new Promise<T>((resolve, reject) => {
+    setTimeout(() => {
+      resolve(x);
+    }, timeout);
+  });
+}
+createPromise(1, 100).then((v) => console.log(v));
+createPromise("str", 100).then((v) => console.log(v));
+
+/* 제네릭으로 2개 이상의 타입 파라미터를 정의할 수 있다. */
+function createTuple<T, U>(v1: T, v2: U): [T, U] {
+  return [v1, v2];
+}
+const tuple = createTuple("user1", 1000);
+
+/* 제네릭 클래스 */
+class LocalDB<T> {
+  constructor(private localStorageKey: string) {}
+  add(v: T) {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(v));
+  }
+  get(): T {
+    const v = localStorage.getItem(this.localStorageKey);
+    return v ? JSON.parse(v) : null;
+  }
+}
+
+interface User {
+  name: string;
+}
+
+const userDB = new LocalDB<User>("user");
+userDB.add({ name: "jay" });
+// userDB.add('hello');는 불가능.
+// 'hello' 형식의 인수는 'User' 형식의 매개 변수에 할당될 수 없습니다.
+const userA = userDB.get();
+userA.name;
+
+/* 제네릭 인터페이스 */
+interface DB<T> {
+  add(v: T): void;
+  get(): T;
+}
+
+class Database<T> implements DB<T> {
+  add(v: T): void {
+    throw new Error("Method not implemented.");
+  }
+  get(): T {
+    throw new Error("Method not implemented.");
+  }
+}
+
+/* 제네릭에서 조건부 타입 활용하기 */
+interface Vegetable {
+  v: string;
+}
+
+interface Meat {
+  m: string;
+}
+
+interface Cart<T> {
+  getItem(): T extends Vegetable ? Vegetable : Meat;
+}
+
+const cart1: Cart<Vegetable> = {
+  getItem() {
+    return {
+      v: "",
+    };
+  },
+};
+
+cart1.getItem();
