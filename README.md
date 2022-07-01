@@ -26,3 +26,7 @@
 ### 📁 nextjs-intro
 - Next.js 입문 강의
 - 🔗 [노마드 코더 - NextJS 시작하기](https://nomadcoders.co/nextjs-fundamentals)
+
+### 📁 nextjs-tutorial
+- Next.js 입문 강의
+- 🔗 [코딩앙마 Next js 강좌](https://www.youtube.com/playlist?list=PLZKTXPmaJk8Lx3TqPlcEAzTL8zcpBz7NP)
