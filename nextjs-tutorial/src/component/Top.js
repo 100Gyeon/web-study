@@ -1,5 +1,5 @@
 import { Header } from 'semantic-ui-react';
-import Gnb from './Gnb';
+import GNB from './GNB';
 
 export default function Top() {
   return (
@@ -10,7 +10,7 @@ export default function Top() {
         </div>
         <Header as="h1">100Gyeon</Header>
       </div>
-      <Gnb />
+      <GNB />
     </div>
   );
 }
