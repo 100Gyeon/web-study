@@ -30,7 +30,6 @@ yarn dev
 - 📁pages/📁movies/[...params].js ➡️ `http://localhost:3000/movies/a`, `http://localhost:3000/movies/a/b`, `http://localhost:3000/movies/a/b/c` 등 movies로 시작하는 모든 path에 접근할 수 있다. 하지만 params가 없는 경우인 `http://localhost:3000/movies`는 매칭되지 않는다.     
 - 📁pages/📁movies/[[...params]].js ➡️ 위에서 언급한 path 모두 가능하다.
 
-
 ## 2. routing
 <table>
 <tr>
@@ -76,7 +75,28 @@ export default function NavBar() {
 - Link는 단지 href만을 위한 것
 - 나머지(style, className)는 모두 anchor 태그에 넣는다.
 
-### 
+### useRouter Hook
+- [공식 문서](https://nextjs.org/docs/api-reference/next/router)
+- pathname으로 현재 url을 알 수 있음
+```javascript
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+export default function NavBar() {
+  const router = useRouter();
+
+  return (
+    <nav>
+      <Link href="/">
+        <a style={{ color: router.pathname === '/' ? 'red' : 'blue' }}>Home</a>
+      </Link>
+      <Link href="/about">
+        <a style={{ color: router.pathname === '/about' ? 'red' : 'blue' }}>About</a>
+      </Link>
+    </nav>
+  );
+}
+```
 
 ## 3. pre-rendering
 
@@ -101,3 +121,65 @@ export default function NavBar() {
     }
   }
   ```
+
+## 4. custom app (_app.js)
+- 모든 페이지에서 공통적으로 사용하는 것들(NavBar, 글로벌 스타일 등)을 _app.js에서 한 번에 적용할 수 있음
+- NextJS가 _app.js를 불러와서 실행
+- `<style jsx global>`로 글로벌 스타일 적용 가능
+```javascript
+import NavBar from '../components/NavBar';
+
+export default function App({ Component, pageProps }) {
+  return (
+    <div>
+      <NavBar />
+      <Component {...pageProps} />
+      <style jsx global>{`
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .active {
+          color: tomato;
+        }
+      `}</style>
+    </div>
+  );
+}
+```
+
+## 5. Layout component
+- _app.js 파일 크기가 커지는 것은 지양해야 함
+- 이를 위해 Layout 컴포넌트를 _app.js에서 import함
+```javascript
+import NavBar from './NavBar';
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <NavBar />
+      <div>{children}</div>
+    </>
+  );
+}
+```
+```javascript
+import Layout from '../components/Layout';
+
+export default function App({ Component, pageProps }) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+      <style jsx global>{`
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .active {
+          color: tomato;
+        }
+      `}</style>
+    </Layout>
+  );
+}
+```
