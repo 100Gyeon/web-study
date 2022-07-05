@@ -45,12 +45,16 @@
 - 퍼포먼스 이유로 Next.js는 정적 생성을 권고
 - 정적 생성된 페이지들은 CDN에 캐시됨
 - getStaticProps / getStaticPaths
+  - 개발 환경에서는 둘 다 요청할 때마다 호출된다. 그래서 개발 환경에서 테스트하기 더 편하다.
   - `getStaticProps` : [id] 같은 Dynamic Routes는 불가능. 어떤 id가 들어올지 모르기 때문에 모든 제품에 대해 html을 하나하나 생성해둘 수 없음.
   - `getStaticPaths` : 만약 개수가 한정적이고 id list를 미리 알 수 있으면, [id] 같은 Dynamic Routes도 가능.
     - return 할 때 fallback 값이 false이면, 없는 페이지 대응을 못한다. 없는 페이지는 그냥 404 페이지 뜬다.
     - return 할 때 fallback 값이 true라면?  
-    getStaticPaths로 전달된 경로들은 build time에 만들어지는 것은 변함없음. 나머지는 최초 접속 시 props가 빈 상태로 그려지고, 이후에 background에서 정적 파일로 html과 json을 생성해 준다. 그다음에 next.js는 pre-rendering 목록에 추가한다. 두 번째 접속부터는 정적 생성된 페이지를 사용하기 때문에 새로고침 해도 굉장히 빠르게 보인다.  
-    (주의) 페이지가 굉장히 많을 경우 위험함. build time 늘어남.
+      getStaticPaths로 전달된 경로들은 build time에 만들어지는 것은 변함없음.  
+      나머지는 최초 접속 시 props가 빈 상태(원하면 로딩 추가 가능)로 그려지고, 이후에 background에서 정적 파일로 html과 json을 생성해 준다.  
+      그다음에 next.js는 pre-rendering 목록에 추가한다.  
+      두 번째 접속부터는 정적 생성된 페이지를 사용하기 때문에 새로고침 해도 굉장히 빠르게 보인다.  
+      (주의) 페이지가 굉장히 많을 경우 위험함. build time 늘어남.
 - 유저가 요청하기 전에 미리 페이지를 만들어놔도 상관없으면 정적 생성을 쓰면 된다.
 - 마케팅 페이지, 블로그 게시물, 제품 리스트, 도움말, 문서에 적합
 
