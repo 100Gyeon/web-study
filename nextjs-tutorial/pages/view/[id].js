@@ -2,7 +2,7 @@ import Axios from 'axios';
 import Head from 'next/head';
 import Item from '../../src/component/Item';
 
-export default function View({ item }) {
+export default function View({ item, name }) {
   return (
     <>
       {item && (
@@ -11,6 +11,7 @@ export default function View({ item }) {
             <title>{item.name}</title>
             <meta name="description" content={item.description}></meta>
           </Head>
+          {name} 환경입니다.
           <Item item={item} />
         </>
       )}
@@ -28,6 +29,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       item: data,
+      name: process.env.name,
     },
   };
 }
