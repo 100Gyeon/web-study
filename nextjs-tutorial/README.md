@@ -29,6 +29,7 @@
 - [관련 커밋](https://github.com/100Gyeon/web-study/commit/77ead4b2c5127d271167bb922be275ed1e50c8f6)
 - Next.js의 Dynamic Routes를 이용해 상품 ID가 달라도 하나의 페이지로 관리할 수 있다.
 - next/link를 이용해 새로고침 없이 페이지 간 이동을 할 수 있다.
+- Link에는 `prefetch`라는 속성이 있다. default가 true. 이걸 쓰게 되면 첫 화면이나 스크롤을 했을 때, viewport 내부에 있는 링크들은 다 preload 된다. preload가 된다는 것은 정적 생성이 된다는 것.
 
 ### 3. Pre-rendering
 
@@ -44,6 +45,12 @@
 - 퍼포먼스 이유로 Next.js는 정적 생성을 권고
 - 정적 생성된 페이지들은 CDN에 캐시됨
 - getStaticProps / getStaticPaths
+  - `getStaticProps` : [id] 같은 Dynamic Routes는 불가능. 어떤 id가 들어올지 모르기 때문에 모든 제품에 대해 html을 하나하나 생성해둘 수 없음.
+  - `getStaticPaths` : 만약 개수가 한정적이고 id list를 미리 알 수 있으면, [id] 같은 Dynamic Routes도 가능.
+    - return 할 때 fallback 값이 false이면, 없는 페이지 대응을 못한다. 없는 페이지는 그냥 404 페이지 뜬다.
+    - return 할 때 fallback 값이 true라면?  
+    getStaticPaths로 전달된 경로들은 build time에 만들어지는 것은 변함없음. 나머지는 최초 접속 시 props가 빈 상태로 그려지고, 이후에 background에서 정적 파일로 html과 json을 생성해 준다. 그다음에 next.js는 pre-rendering 목록에 추가한다. 두 번째 접속부터는 정적 생성된 페이지를 사용하기 때문에 새로고침 해도 굉장히 빠르게 보인다.  
+    (주의) 페이지가 굉장히 많을 경우 위험함. build time 늘어남.
 - 유저가 요청하기 전에 미리 페이지를 만들어놔도 상관없으면 정적 생성을 쓰면 된다.
 - 마케팅 페이지, 블로그 게시물, 제품 리스트, 도움말, 문서에 적합
 
@@ -75,4 +82,4 @@
 - `.env.production`
 - node.js 환경(getServerSideProps 내부)과 browser 환경에서 사용법이 다르다.
   - node.js : process.env.변수명
-  - browser : process.env.NEXT_PUBLIC_변수명
+  - browser : process.env.NEXT*PUBLIC*변수명
