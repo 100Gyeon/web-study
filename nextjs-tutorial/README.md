@@ -88,3 +88,7 @@
 - node.js 환경(getServerSideProps 내부)과 browser 환경에서 사용법이 다르다.
   - node.js : process.env.변수명
   - browser : process.env.NEXT_PUBLIC_변수명
+
+### 6. API Routes, 로그인 구현
+- http://localhost:3000/api/hello에 접속하면, pages/api/hello.js에 작성한 json이 보인다.
+- 페이지 만드는 것과 동일하게 api도 만들 수 있다.
