@@ -24,6 +24,12 @@
   - 여기서는 css도 사용하지 않는다.
   - `_document.js`에서 사용하는 `Head`와 `_app.js`에서 사용하는 `Head`는 다르다.
 
+### 2. Dynamic Routes, next/link
+
+- [관련 커밋](https://github.com/100Gyeon/web-study/commit/77ead4b2c5127d271167bb922be275ed1e50c8f6)
+- Next.js의 Dynamic Routes를 이용해 상품 ID가 달라도 하나의 페이지로 관리할 수 있다.
+- next/link를 이용해 새로고침 없이 페이지 간 이동을 할 수 있다.
+
 ### 3. Pre-rendering
 
 - Next.js는 기본적으로 모든 페이지를 사전 렌더링(pre-rendering) 한다.
@@ -48,3 +54,25 @@
 - 항상 최신 상태 유지
 - getServerSideProps
 - 관리자 페이지, 분석 차트에 적합
+
+### 4. Custom Error Page
+
+- [공식 문서](https://nextjs.org/docs/advanced-features/custom-error-page)
+- 404 에러
+  - Next.js는 404 페이지를 static file로 제공한다.
+  - pages 폴더 안에 `404.js` 파일을 만들면 된다. 이 파일은 build time에 정적 생성된다.
+- 500 에러
+  - production mode에서 확인해야 함. 개발 모드에서는 서버 에러가 나면 로그를 보여주기 때문.
+  - production으로 띄우려면 yarn build && yarn start 해야 한다.
+  - `500.js` 파일을 만드는 것이 아니라, `_error.js` 파일을 만들어서 처리한다.
+  - 이 페이지는 정적으로 최적화되어 있지는 않다. 에러가 발생했을 때 서버 쪽으로 에러를 보내는 작업을 동반하는 경우가 많기 때문.
+
+### 5. Environment Variables
+
+- 환경에 따라 변할 수 있는 값들을 분기 처리할 수 있다.
+- (예) 개발 환경과 production 환경에서 다른 리스트가 보여야 할 때, test data가 실제 서비스 리스트에 나오면 안 될 때
+- `.env.development`
+- `.env.production`
+- node.js 환경(getServerSideProps 내부)과 browser 환경에서 사용법이 다르다.
+  - node.js : process.env.변수명
+  - browser : process.env.NEXT*PUBLIC*변수명
