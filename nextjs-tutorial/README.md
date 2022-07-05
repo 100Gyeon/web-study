@@ -75,4 +75,4 @@
 - `.env.production`
 - node.js 환경(getServerSideProps 내부)과 browser 환경에서 사용법이 다르다.
   - node.js : process.env.변수명
-  - browser : process.env.NEXT*PUBLIC*변수명
+  - browser : process.env.NEXT_PUBLIC_변수명
