@@ -51,7 +51,8 @@
     - return 할 때 fallback 값이 false이면, 없는 페이지 대응을 못한다. 없는 페이지는 그냥 404 페이지 뜬다.
     - return 할 때 fallback 값이 true라면?  
       getStaticPaths로 전달된 경로들은 build time에 만들어지는 것은 변함없음.  
-      나머지는 최초 접속 시 props가 빈 상태(원하면 로딩 추가 가능)로 그려지고, 이후에 background에서 정적 파일로 html과 json을 생성해 준다.  
+      나머지는 최초 접속 시 props가 빈 상태(원하면 로딩 추가 가능)로 그려지고,  
+      이후에 background에서 정적 파일로 html과 json을 생성해 준다.  
       그다음에 next.js는 pre-rendering 목록에 추가한다.  
       두 번째 접속부터는 정적 생성된 페이지를 사용하기 때문에 새로고침 해도 굉장히 빠르게 보인다.  
       (주의) 페이지가 굉장히 많을 경우 위험함. build time 늘어남.
@@ -86,4 +87,4 @@
 - `.env.production`
 - node.js 환경(getServerSideProps 내부)과 browser 환경에서 사용법이 다르다.
   - node.js : process.env.변수명
-  - browser : process.env.NEXT*PUBLIC*변수명
+  - browser : process.env.NEXT_PUBLIC_변수명
