@@ -35,8 +35,8 @@
 
 - Next.js는 기본적으로 모든 페이지를 사전 렌더링(pre-rendering) 한다.
 - 사전 렌더링은 더 좋은 퍼포먼스를 내고, 검색 엔진 최적화(SEO)에 좋다.
-- Pre-rendering에는 2가지 방법이 있다. : Static-site Generation(SSG), Server-side rendering(SSR)
-- 2가지 방법의 차이점? 언제 HTML 파일을 생성하는가
+- Pre-rendering에는 2가지 방법이 있다. : `Static-site Generation(SSG)`, `Server-side rendering(SSR)`
+- 2가지 방법의 차이점? **언제** HTML 파일을 생성하는가
 
 #### 3-1. 정적 생성
 
@@ -44,16 +44,16 @@
 - 모든 요청에 재사용
 - 퍼포먼스 이유로 Next.js는 정적 생성을 권고
 - 정적 생성된 페이지들은 CDN에 캐시됨
-- getStaticProps / getStaticPaths
+- `getStaticProps` / `getStaticPaths`
   - 개발 환경에서는 둘 다 요청할 때마다 호출된다. 그래서 개발 환경에서 테스트하기 더 편하다.
   - `getStaticProps` : [id] 같은 Dynamic Routes는 불가능. 어떤 id가 들어올지 모르기 때문에 모든 제품에 대해 html을 하나하나 생성해둘 수 없음.
   - `getStaticPaths` : 만약 개수가 한정적이고 id list를 미리 알 수 있으면, [id] 같은 Dynamic Routes도 가능.
     - return 할 때 fallback 값이 false이면, 없는 페이지 대응을 못한다. 없는 페이지는 그냥 404 페이지 뜬다.
     - return 할 때 fallback 값이 true라면?  
-      getStaticPaths로 전달된 경로들은 build time에 만들어지는 것은 변함없음.  
-      나머지는 최초 접속 시 props가 빈 상태(원하면 로딩 추가 가능)로 그려지고,  
+      `getStaticPaths`로 전달된 경로들이 build time에 만들어지는 것은 변함없음.  
+      나머지는 최초 접속 시 props가 빈 상태(원하면 로딩 표시 가능)로 그려지고,  
       이후에 background에서 정적 파일로 html과 json을 생성해 준다.  
-      그다음에 next.js는 pre-rendering 목록에 추가한다.  
+      그다음에 Next.js는 pre-rendering 목록에 추가한다.  
       두 번째 접속부터는 정적 생성된 페이지를 사용하기 때문에 새로고침 해도 굉장히 빠르게 보인다.  
       (주의) 페이지가 굉장히 많을 경우 위험함. build time 늘어남.
 - 유저가 요청하기 전에 미리 페이지를 만들어놔도 상관없으면 정적 생성을 쓰면 된다.
@@ -64,7 +64,7 @@
 - 매 요청마다 HTML 파일 생성
 - CDN에 캐시되지 않기 때문에 조금 느릴 수 있음
 - 항상 최신 상태 유지
-- getServerSideProps
+- `getServerSideProps`
 - 관리자 페이지, 분석 차트에 적합
 
 ### 4. Custom Error Page
@@ -75,7 +75,7 @@
   - pages 폴더 안에 `404.js` 파일을 만들면 된다. 이 파일은 build time에 정적 생성된다.
 - 500 에러
   - production mode에서 확인해야 함. 개발 모드에서는 서버 에러가 나면 로그를 보여주기 때문.
-  - production으로 띄우려면 yarn build && yarn start 해야 한다.
+  - production으로 띄우려면 `yarn build && yarn start` 해야 한다.
   - `500.js` 파일을 만드는 것이 아니라, `_error.js` 파일을 만들어서 처리한다.
   - 이 페이지는 정적으로 최적화되어 있지는 않다. 에러가 발생했을 때 서버 쪽으로 에러를 보내는 작업을 동반하는 경우가 많기 때문.
 
@@ -90,5 +90,7 @@
   - browser : process.env.NEXT_PUBLIC_변수명
 
 ### 6. API Routes, 로그인 구현
-- http://localhost:3000/api/hello에 접속하면, pages/api/hello.js에 작성한 json이 보인다.
+- `http://localhost:3000/api/hello`에 접속하면, pages/api/hello.js에 작성한 json이 보인다.
 - 페이지 만드는 것과 동일하게 api도 만들 수 있다.
+- 작업 흐름은 다음과 같다.
+  ![flow](https://user-images.githubusercontent.com/58380158/177291500-4894f0ca-2899-4bd7-ad39-845669628fa0.png)
