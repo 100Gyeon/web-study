@@ -139,8 +139,24 @@
     ```
 
 - 리액트에서 배열의 항목 제거하기 : **filter**
+  ```javascript
+  const onRemove = (id) => {
+    setUsers(users.filter(user => user.id !== id));
+  };
+  ```
 
 - 리액트에서 배열의 항목 수정하기 : **map**
+  ```javascript
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        user.id === id
+        ? { ...user, active: !user.active }
+        : user,
+      ),
+    );
+  };
+  ```
 
 - **useEffect** Hook  
   첫 번째 파라미터에는 함수 등록  
