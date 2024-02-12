@@ -51,6 +51,6 @@
 
 ### Data Fetching
 
-- [Parallel Requests](c2910379b5d26f77ca6b085e3931eaa8673c0496)
-- [Suspense](ac6478161493f20b5f97e089b1cd7f1f5378a60c)
-- [Error Handling](79d5870cfac2865d8373f63f3bdaede3dd39bd8a)
+- [Parallel Requests](https://github.com/100Gyeon/web-study/commit/c2910379b5d26f77ca6b085e3931eaa8673c0496)
+- [Suspense](https://github.com/100Gyeon/web-study/commit/ac6478161493f20b5f97e089b1cd7f1f5378a60c)
+- [Error Handling](https://github.com/100Gyeon/web-study/commit/79d5870cfac2865d8373f63f3bdaede3dd39bd8a)
