@@ -42,3 +42,9 @@
     title: { template: '%s | Next Movies', default: 'Next Movies' },
   };
   ```
+
+### Loading Components
+
+- server component가 fetch 하는 동안 보여줄 loading component
+- 통신이 마무리되면 프레임워크에 의해 자동으로 실제 결괏값으로 교체
+- 파일 이름은 loading이고, 위치는 page.tsx 파일 옆이어야 함
