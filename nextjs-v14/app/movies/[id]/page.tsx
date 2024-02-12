@@ -1,11 +1,17 @@
 import { Suspense } from 'react';
-import MovieInfo from '../../../components/movie-info';
+import MovieInfo, { getMovie } from '../../../components/movie-info';
 import MovieVideos from '../../../components/movie-videos';
 
 interface MovieDetailProps {
   params: {
     id: string;
   };
+}
+
+// page 컴포넌트가 params에서 url의 id를 props로 전달받는 것처럼 generateMetadata에서도 동일하게 동작
+export async function generateMetadata({ params: { id } }: MovieDetailProps) {
+  const movie = await getMovie(id);
+  return { title: movie.title };
 }
 
 export default async function MovieDetail({ params: { id } }: MovieDetailProps) {
