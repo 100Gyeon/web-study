@@ -48,3 +48,9 @@
 - server component가 fetch 하는 동안 보여줄 loading component
 - 통신이 마무리되면 프레임워크에 의해 자동으로 실제 결괏값으로 교체
 - 파일 이름은 loading이고, 위치는 page.tsx 파일 옆이어야 함
+
+### Data Fetching
+
+- [Parallel Requests](c2910379b5d26f77ca6b085e3931eaa8673c0496)
+- [Suspense](ac6478161493f20b5f97e089b1cd7f1f5378a60c)
+- [Error Handling](79d5870cfac2865d8373f63f3bdaede3dd39bd8a)
