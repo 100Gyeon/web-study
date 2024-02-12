@@ -183,3 +183,8 @@ export default function App({ Component, pageProps }) {
   );
 }
 ```
+
+## 6. Old vs New Version
+Next.js v14부터 data fetching, routing 방식 변경  
+app router, pages router를 함께 사용할 수 있으니, 버전 먼저 업그레이드한 뒤 app router로 마이그레이션  
+Next.js는 app 폴더 안의 page.tsx를 참조
