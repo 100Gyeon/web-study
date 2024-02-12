@@ -19,3 +19,22 @@
 - app/layout.tsx 파일의 용도 : 복붙 없이 어디서나 요소 재사용 (ex. GNB, footer)
 - Next.js는 layout component로 먼저 가서 export default function을 렌더링하고 URL을 확인
 - 특정 페이지 폴더(ex. app/about-us)에서 특정 페이지만의 레이아웃 생성 가능
+
+### Route Groups
+
+- 폴더 이름을 괄호로 묶어야 함 (ex. app/(home))
+- **괄호로 묶은 폴더는 URL을 생성하지 않음**
+- routes를 그룹화해서 logical groups로 만들 수 있음
+
+### Metadata
+
+- 페이지나 레이아웃만 메타데이터를 내보낼 수 있음
+- 컴포넌트는 메타데이터를 내보낼 수 없음
+- 메타데이터는 서버 컴포넌트에서만 가능
+- [공식 문서](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
+- 적용 예시
+  ```typescript
+  export const metadata: Metadata = {
+    title: { template: '%s | Next Movies', default: 'Next Movies' },
+  };
+  ```
