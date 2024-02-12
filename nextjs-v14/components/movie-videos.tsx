@@ -1,4 +1,4 @@
-import { API_URL } from '../constants/url';
+import { API_URL, YOUTUBE_URL } from '../constants/url';
 
 async function getVideos(id: string) {
   // await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -8,5 +8,11 @@ async function getVideos(id: string) {
 
 export default async function MovieVideos({ id }: { id: string }) {
   const videos = await getVideos(id);
-  return <div>{JSON.stringify(videos)}</div>;
+  return (
+    <div>
+      {videos.map((video) => (
+        <iframe key={video.id} src={`${YOUTUBE_URL}/${video.key}`} title={video.name} />
+      ))}
+    </div>
+  );
 }
