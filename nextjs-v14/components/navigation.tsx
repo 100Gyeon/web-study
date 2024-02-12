@@ -12,7 +12,7 @@ export default function Navigation() {
           <Link href="/">Home</Link> {path === '/' && '🚀'}
         </li>
         <li>
-          <Link href="/about-us">About</Link> {path === '/about-us' && '🚀'}
+          <Link href="/about-us">About</Link> {path.includes('/about-us') && '🚀'}
         </li>
       </ul>
     </nav>
