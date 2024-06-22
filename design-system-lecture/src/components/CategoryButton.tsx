@@ -14,7 +14,7 @@ export default function CategoryButton({ iconPath, iconAlt, text, onClick }: Cat
       rounded-button-default
       border
       border-primary
-      text-primary
+      text-mono100
       text-base
       font-bold
       pl-[22px]

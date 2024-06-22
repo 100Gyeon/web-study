@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import DefaultTextField from './components/DefaultTextField';
 import Label from './components/Label';
-import './App.css';
 
 function App() {
   const [isError, setIsError] = useState(false);
