@@ -3,6 +3,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {},
+    borderRadius: {
+      'primary-button': '5px',
+      'tag-button': '17.5px',
+    },
     fontFamily: {
       body: ['Noto Sans KR'],
     },
