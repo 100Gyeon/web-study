@@ -29,7 +29,7 @@ export default function DefaultTextField({
   const borderColor = isFocused ? 'border-secondary' : !value ? 'border-mono300' : 'border-primary';
 
   return (
-    <div>
+    <div className="relative text-field">
       <div
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

@@ -1,19 +1,41 @@
 import { useState } from 'react';
+import DefaultTextField from './components/DefaultTextField';
+import Label from './components/Label';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [isError, setIsError] = useState(false);
   return (
     <>
-      <h1 className="text-2xl text-primary underline">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Label htmlFor="email">이메일</Label>
+      <DefaultTextField
+        id="email"
+        placeholder="이메일을 입력해 주세요."
+        value=""
+        errorMessage="이메일을 확인해 주세요."
+        isError={isError}
+        iconPath="https://kr.object.ncloudstorage.com/icons/ic-delete-dark.svg"
+        iconAlt="delete"
+        onChange={() => {}}
+        onIconClick={() => {}}
+      />
+
+      <div className="my-20" />
+
+      <Label htmlFor="address">주소</Label>
+      <DefaultTextField
+        id="address"
+        placeholder="주소를 입력해 주세요."
+        value=""
+        errorMessage="주소를 확인해 주세요."
+        isError={isError}
+        iconPath="https://kr.object.ncloudstorage.com/icons/ic-delete-dark.svg"
+        iconAlt="delete"
+        onChange={() => {}}
+        onIconClick={() => {}}
+      />
+
+      <button onClick={() => setIsError((prev) => !prev)}>에러 토글 버튼</button>
     </>
   );
 }
