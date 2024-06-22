@@ -24,7 +24,7 @@ export default function PrimaryButton({ theme, children, onClick, disabled }: Pr
   return (
     <button
       className={`
-        rounded-primary-button
+        rounded-button-default
         w-full 
         h-[59px] 
         ${disabledStyle}
