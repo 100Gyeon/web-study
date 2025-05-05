@@ -13,18 +13,18 @@ AWS 사용자 유형 2가지
 
 ## 02 AWS 서비스를 사용하는 세 가지 방법
 
-### 웹 브라우저에서 AWS 조작
+### (1) 웹 브라우저에서 AWS 조작
 
 https://aws.amazon.com/ko/getting-started/hands-on/getting-started-with-aws-management-console
 
 가장 일반적이고 직관적인 방법은 웹 브라우저에서 관리 콘솔을 사용하는 것
 
-### 명령줄 도구로 AWS 조작
+### (2) 명령줄 도구로 AWS 조작
 
 AWS Command Line Interface(AWS CLI)를 설치해야 한다.  
 웹 브라우저 UI나 메뉴 이름 변경에 따른 혼란 없이 AWS CLI 명령어로 일관된 조작 가능
 
-### 프로그램 방식으로 AWS 조작
+### (3) 프로그램 방식으로 AWS 조작
 
 https://github.com/aws/aws-sdk-js-v3
 
