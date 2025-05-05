@@ -1,6 +1,6 @@
 # 1. Amazon Web Service 기초 지식
 
-## 01 AWS를 시작하기 위한 첫 걸음
+## [01] AWS를 시작하기 위한 첫 걸음
 
 ### 대표적인 클라우드 서비스, Amazon Web Services
 
@@ -13,7 +13,7 @@ AWS처럼 누구나 사용할 수 있는 클라우드를 **개방형 클라우�
 AWS 외에 유명한 개방형 클라우드로는 GCP, Microsoft Azure, CloudLink가 있다.  
 시장 점유율은 AWS가 38%로 다른 클라우드 서비스보다 높다.
 
-## 02 클라우드 용어 알아두기
+## [02] 클라우드 용어 알아두기
 
 ### 클라우드 용어 알아두기
 
@@ -88,7 +88,7 @@ AWS 외에 유명한 개방형 클라우드로는 GCP, Microsoft Azure, CloudLin
 | PaaS (Platform as a Service)       | 서버 + 미들웨어      | 데이터베이스, 컨테이너 환경 |
 | IaaS (Infrastructure as a Service) | 서버                 | 가상 서버                   |
 
-## 03 AWS를 이해하기 위한 6가지 특징
+## [03] AWS를 이해하기 위한 6가지 특징
 
 1. AWS와 사용자 간의 책임 공유(공동 책임 모델)  
    https://aws.amazon.com/ko/compliance/shared-responsibility-model
@@ -106,7 +106,7 @@ AWS 외에 유명한 개방형 클라우드로는 GCP, Microsoft Azure, CloudLin
 6. 설계의 모범이 되는 프레임워크  
    https://wa.aws.amazon.com/index.ko.html
 
-## 04 서비스 분류 및 대표적인 서비스
+## [04] 서비스 분류 및 대표적인 서비스
 
 ### 대표적인 서비스
 
